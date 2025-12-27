@@ -1,0 +1,60 @@
+{
+	"navbar": [
+		{
+			"title": "dropdown1",
+			"entries": [
+				{
+					"title": "game1",
+					"content": "some game with image",
+					"image": "https://i.kym-cdn.com/photos/images/newsfeed/001/505/718/136.jpg",
+					"url": "/"
+				},
+				{
+					"title": "book1",
+					"content": "some book",
+					"url": "/"
+				},
+				{
+					"title": "book2",
+					"content": "some book",
+					"url": "/"
+				},
+				{
+					"title": "book3",
+					"url": "/"
+				}
+			]
+		},
+		{
+			"title": "select1",
+			"url": "/"
+		},
+		{
+			"title": "select2",
+			"url": "/"
+		},
+		{
+			"title": "dropdown1",
+			"entries": [
+				{
+					"title": "book1",
+					"content": "some book",
+					"url": "/"
+				},
+				{
+					"title": "book2",
+					"content": "I love this",
+					"url": "/"
+				},
+				{
+					"title": "book2",
+					"url": "/"
+				},
+				{
+					"title": "book2",
+					"url": "/"
+				}
+			]
+		}
+	]
+}

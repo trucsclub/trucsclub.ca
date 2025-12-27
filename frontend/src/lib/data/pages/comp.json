@@ -1,0 +1,20 @@
+{
+	"navbar": [
+		{
+			"title": "Get Involved",
+			"url": "/"
+		},
+		{
+			"title": "Events",
+			"url": "/"
+		},
+		{
+			"title": "Board Meeting",
+			"url": "/"
+		},
+		{
+			"title": "Members",
+			"url": "/"
+		}
+	]
+}
