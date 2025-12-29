@@ -56,5 +56,11 @@
 				}
 			]
 		}
-	]
+	],
+	"hero": {
+		"title": "Welcome to TRU Computing",
+		"content": "A central place to find learn about the computing clubs at TRU and their events.",
+		"color": "white",
+		"image": "/images/heros/alexandre-debieve-FO7JIlwjOtU-unsplash.jpg"
+	}
 }

@@ -1,20 +1,24 @@
+import type clubs from '$lib/data/clubs.json';
+
+export type ClubKey = keyof typeof clubs;
+
 interface SocialWithLogo {
-	logo: string; // logo is present
+	image: string; // logo is present
 	title?: string; // title optional
 	url: string;
 }
 
 interface SocialWithoutLogo {
-	logo?: undefined; // logo missing
+	image?: undefined; // logo missing
 	title: string; // title required
 	url: string;
 }
 
 export type Social = SocialWithLogo | SocialWithoutLogo;
 
-export default interface Club {
+export interface Club {
 	name: string;
-	logo: string;
+	image: string;
 	url: string;
 
 	socials?: Record<string, Social>; // <platform (key), info (value)>

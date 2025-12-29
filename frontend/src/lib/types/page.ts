@@ -19,6 +19,14 @@ export interface HeaderDropdown {
 
 export type HeaderElement = HeaderLink | HeaderDropdown;
 
+export interface Hero {
+	title: string;
+	content?: string;
+	color?: string; // CSS-valid color name or value for text.
+	image?: string;
+}
+
 export default interface Page {
 	navbar: HeaderElement[];
+	hero: Hero;
 }

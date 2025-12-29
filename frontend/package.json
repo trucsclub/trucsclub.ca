@@ -25,6 +25,7 @@
 		"@types/node": "^22",
 		"bits-ui": "^2.14.4",
 		"clsx": "^2.1.1",
+		"embla-carousel-svelte": "^8.6.0",
 		"eslint": "^9.39.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.13.1",
