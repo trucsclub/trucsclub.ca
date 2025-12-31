@@ -1,6 +1,6 @@
-# Frontend
-
-Insert words
+## TRU Computing
+This website will be used for the computing clubs at Thompson Rivers University.
+Content is currently defined in the ./frontend/src/lib/data directory. Each club must define images and data to be shown on their respective pages. Available attributes should be able to be inferred from the existing json files. For anything that may be missing, see the ./frontend/src/lib/types directory for now where available attributes are defined.
 
 ## Initializing repo
 
@@ -9,6 +9,8 @@ git remote add origin https://github.com/Aidanjosiah02/trucomputing.ca.git
 # fetch and switch to main.
 nvm install latest
 nvm use latest
+
+cd frontend
 npm install
 # Then switch to your desired branch.
 
@@ -17,6 +19,7 @@ npm install
 ## start development server:
 
 ```sh
+# ensure you're in the frontend directory first.
 npm run dev
 ```
 
