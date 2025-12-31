@@ -5,15 +5,13 @@ Content is currently defined in the ./frontend/src/lib/data directory. Each club
 ## Initializing repo
 
 ```sh
-git remote add origin https://github.com/Aidanjosiah02/trucomputing.ca.git
-# fetch and switch to main.
+git clone https://github.com/Aidanjosiah02/trucomputing.ca.git
+cd trucomputing.ca
 nvm install latest
 nvm use latest
 
 cd frontend
 npm install
-# Then switch to your desired branch.
-
 ```
 
 ## start development server:
