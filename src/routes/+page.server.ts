@@ -9,8 +9,15 @@ export async function load() {
 	const allEvents: EventTimeDate[] = [];
 
 	for (const slug of Object.keys(clubs) as ClubKey[]) {
-		const rawEvents = await getEvents(slug);
-		const converted = rawEvents.map(event => convertEvent(event, slug));
+		const calendarId = clubs[slug].calendarId;
+
+		if (!calendarId) {
+			console.warn(`No calendarId for club: ${slug}`);
+			continue;
+		}
+
+		const rawEvents = await getEvents(calendarId);
+		const converted = rawEvents.map(e => convertEvent(e, slug));
 		allEvents.push(...converted);
 	}
 
