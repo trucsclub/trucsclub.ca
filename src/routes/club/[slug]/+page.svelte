@@ -15,11 +15,8 @@
 	const clubs = $derived(data.clubs);
 	const projects = $derived(data.projects);
 	const slug = $derived(data.slug);
-
-	import { eventsStore } from '$lib/stores/events';
-	const clubEvents = $derived($eventsStore[slug]);
-	const events = $derived(clubEvents?.events);
-	const meetingEvents = $derived(clubEvents?.meetings);
+	const meetings = $derived(data.meetings);
+	const events = $derived(data.events);
 </script>
 
 <Header selectedClub={clubs[slug]} {clubs} {navbarData} />
@@ -34,11 +31,11 @@
 	</section>
 {/if}
 
-{#if meetingEvents}
+{#if meetings}
 	<section class="m-auto my-16 flex w-11/12 flex-col gap-8" id="meetings">
 		<H1 class="text-center">Meetings</H1>
 		<Separator />
-		<EventCarousel events={meetingEvents} {clubs} />
+		<EventCarousel events={meetings} {clubs} />
 		<Separator />
 	</section>
 {/if}

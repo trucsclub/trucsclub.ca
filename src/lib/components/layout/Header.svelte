@@ -64,7 +64,7 @@
 									</Dialog.Description>
 								</Dialog.Header>
 								<div class="grid gap-4">
-									<iframe class="border-2 w-192 h-160" title="Club Calendar from Google" src="{element.url}" scrolling="no"></iframe>
+									<iframe class="border-2 w-3xl h-160" title="Club Calendar from Google" src="{element.url}" scrolling="no"></iframe>
 								</div>
 							</Dialog.Content>
 						</Dialog.Root>

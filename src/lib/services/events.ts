@@ -1,7 +1,9 @@
 import { IMAGE_EXTENSIONS, IMAGE_MIME_PREFIX } from '$lib/constants';
+import { eventsStore } from '$lib/stores/events';
 import type { ClubKey } from '$lib/types/club';
 import type { EventTimeDate } from '$lib/types/event';
 import type { calendar_v3 } from 'googleapis';
+import { get } from 'svelte/store';
 
 export function convertEvent(event: calendar_v3.Schema$Event, club: ClubKey): EventTimeDate {
 
@@ -118,4 +120,19 @@ export function partitionEvents(events: EventTimeDate[]) {
 	}
 
 	return { meetings, nonMeetings };
+}
+
+export async function ensureClubEvents(slug: ClubKey, fetch: typeof window.fetch) {
+    const store = get(eventsStore);
+    if (store[slug]) {
+        return;
+    }
+    const result = await fetch(`/api/events/${slug}`);
+    if (!result.ok) {
+        return;
+    }
+
+    const events: EventTimeDate[] = await result.json();
+    const { meetings, nonMeetings } = partitionEvents(events);
+    eventsStore.update(store => ({...store, [slug]: {events: nonMeetings, meetings}}));
 }

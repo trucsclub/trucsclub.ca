@@ -6,25 +6,23 @@ import type { Club, ClubKey } from '$lib/types/club';
 import type { ClubProject } from '$lib/types/project';
 
 import { error } from '@sveltejs/kit';
-import { get } from 'svelte/store';
-
-import { eventsStore } from '$lib/stores/events';
 import { getClubProjects } from '$lib/services/projects';
 import { normalizeNavbarUrl } from '$lib/services/urls';
+import { ensureClubEvents } from '$lib/services/events';
+import { get } from 'svelte/store';
 import type { EventTimeDate } from '$lib/types/event';
-import { partitionEvents } from '$lib/services/events';
+import { eventsStore } from '$lib/stores/events';
+
 
 export async function load({ params, fetch }) {
 	const slug = params.slug as ClubKey;
 
 	// Store events so a request is not needed every navigation.
-	const store = get(eventsStore);
-	if (!store[slug]) {
-		const result = await fetch(`/api/events/${slug}`);
-		const events: EventTimeDate[] = await result.json();
-		const { meetings, nonMeetings } = partitionEvents(events);
-		eventsStore.update(store => ({...store, [slug]: {events: nonMeetings, meetings}}));
-	}
+	await ensureClubEvents(slug, fetch);
+
+	const clubEvents = get(eventsStore)[slug] ?? { events: [], meetings: [] };
+	const events: EventTimeDate[] = clubEvents.events ?? [];
+	const meetings: EventTimeDate[] = clubEvents.meetings ?? [];
 
 	try {
 		const page = await import(`$lib/data/pages/${slug}/main.json`);
@@ -34,8 +32,10 @@ export async function load({ params, fetch }) {
 			navbarData: navbar as HeaderElement[],
 			heroData: page.hero as Hero,
 			clubs: clubs as Record<ClubKey, Club>,
-			slug: slug,
-			projects: getClubProjects(projects, slug) as ClubProject[] ?? undefined
+			slug,
+			projects: getClubProjects(projects, slug) as ClubProject[] ?? undefined,
+			events,
+			meetings
 		};
 	} catch (e) {
 		throw error(404, `'${slug}.json' not found: ${e}`);

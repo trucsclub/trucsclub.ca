@@ -6,19 +6,23 @@
 
 	import { H1, H4 } from '$lib/components/ui/typography/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
-
-	import type { PageData } from './$types';
 	import EventCarousel from '$lib/components/layout/EventCarousel.svelte';
 	import ProjectCollection from '$lib/components/layout/ProjectCollection.svelte';
+
+	import type { PageData } from './$types';
+
 	const { data }: { data: PageData } = $props();
 	const navbarData = $derived(data.navbarData);
 	const heroData = $derived(data.heroData);
 	const clubs = $derived(data.clubs);
-	const events = $derived(data.events);
 	const topProjects = $derived(data.topProjects);
 	const selectedClub = $derived(data.selectedClub);
+	const events = $derived(data.events);
+
+	// Derived store: two upcoming non-meeting events per club
 
 </script>
+
 
 <Header {selectedClub} {clubs} {navbarData} />
 <Hero {heroData} />
@@ -41,12 +45,14 @@
 	<Separator />
 </section>
 
+{#if events.length}
 <section class="m-auto my-16 flex w-11/12 flex-col gap-8">
 	<H1 class="text-center">Upcoming Events</H1>
 	<Separator />
 	<EventCarousel {events} {clubs} />
 	<Separator />
 </section>
+{/if}
 
 <section class="m-auto my-16 flex w-11/12 flex-col gap-8">
 	<H1 class="text-center">Top Project Picks</H1>
