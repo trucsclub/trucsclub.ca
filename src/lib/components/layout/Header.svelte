@@ -60,7 +60,7 @@
 								<Dialog.Header>
 									<Dialog.Title>Club Calendar</Dialog.Title>
 									<Dialog.Description>
-										Live club calendar in case event cards are not up to date.
+										Live club calendar in case event cards stop working.
 									</Dialog.Description>
 								</Dialog.Header>
 								<div class="grid gap-4">

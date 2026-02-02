@@ -1,11 +1,7 @@
 {
 	"navbar": [
 		{
-			"title": "Calendar",
-			"url": "https://calendar.google.com/calendar/embed?src=business%40aidanjosiah.com&ctz=America%2FVancouver"
-		},
-		{
-			"title": "Board Meeting",
+			"title": "Meetings",
 			"url": "#meetings"
 		},
 		{

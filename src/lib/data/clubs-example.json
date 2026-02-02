@@ -1,0 +1,70 @@
+{
+	"comp": {
+		"name": "Computing Science",
+		"image": "https://trusu.ca/wp-content/uploads/2024/12/Computer-Science-Club-.webp",
+		"calendarId": "06464c0875d58a2663cc81aeabdf930cf0a2f303ca0bb1ad811a0c41653ae2e4@group.calendar.google.com",
+		"contact": {
+			"email_main": {
+				"address": "example@something.ca",
+				"title": "Email"
+			},
+			"phone_main": {
+				"address": "(123)-456-7890",
+				"title": "Phone"
+			}
+		},
+		"socials": {
+			"discord": {
+				"url": "https://discord.gg/UEGuccvBRy",
+				"title": "Discord",
+				"image": "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d80db9971f10a9757c99_Symbol.svg"
+			},
+			"instagram": {
+				"url": "https://www.instagram.com/trucsclub/",
+				"title": "Instagram",
+				"image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+			},
+			"facebook": {
+				"url": "https://www.facebook.com/profile.php?id=61551258991234&ref=xav_ig_profile_web",
+				"title": "Facebook",
+				"image": "https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
+			}
+		},
+		"members": [
+			{
+				"name": "Aidan Chan",
+				"position": "Web Developer",
+				"description": "Hunting bugs since 2002.",
+				"image": "/images/members/Aidan_Chan.jpg"
+			},
+			{
+				"name": "Jayden",
+				"position": "👑 President",
+				"description": "A pretty cool dude."
+			}
+		]
+	},
+	"cyber": {
+		"name": "Cyber Security",
+		"image": "https://trusu.ca/wp-content/uploads/2024/12/Cyber-Security-Club-1-1.png",
+		"calendarId": "",
+		"members": [
+			{
+				"name": "Aidan Chan",
+				"position": "Web Developer",
+				"description": "Hunting bugs since 2002.",
+				"image": "/images/members/Aidan_Chan.jpg"
+			},
+			{
+				"name": "Patrick",
+				"position": "👑 President",
+				"description": "Another pretty cool dude."
+			}
+		]
+	},
+	"game": {
+		"name": "Game Development",
+		"image": "https://trusu.ca/wp-content/uploads/2024/12/Game-Development-Club-1-1.webp",
+		"calendarId": ""
+	}
+}

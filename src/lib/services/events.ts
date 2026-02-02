@@ -9,7 +9,6 @@ export function convertEvent(event: calendar_v3.Schema$Event, club: ClubKey): Ev
 
     let custom: Record<string, unknown> = {};
     let cleanDescription = '';
-    const imageSize = 512; // Make modifiable through Description json later on.
     if (event.description) {
         ({ custom, cleanDescription } = parseDescription(event.description));
     }
@@ -17,7 +16,7 @@ export function convertEvent(event: calendar_v3.Schema$Event, club: ClubKey): Ev
     let images: string[] = [];
     if (event.attachments) {
         const imageObjects = (event.attachments).filter((attachment) => isAttachmentImage(attachment))
-        images = imageObjects.flatMap((image) => image.fileId ? `https://drive.google.com/thumbnail?id=${image.fileId}&sz=s${imageSize}` : []);
+        images = imageObjects.flatMap((image) => image.fileId ? `/api/image/${image.fileId}` : []);
     }
 
     const startDateTime = event.start?.dateTime;

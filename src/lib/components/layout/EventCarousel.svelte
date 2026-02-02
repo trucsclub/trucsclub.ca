@@ -17,8 +17,18 @@
 				<div class="h-full p-1">
 					<Card.Root class="h-full w-full">
 						<Card.Content class="flex aspect-square flex-col items-start gap-2">
-							<img src={event.image?.url} alt=""/>
 							{#if !event.image?.has_info}
+								{#if event.image}
+									<div class="w-full max-h-48 overflow-hidden rounded-md">
+										<img
+											src={event.image?.url}
+											alt=""
+											loading="lazy"
+											referrerpolicy="no-referrer"
+											class="max-h-48 w-full object-cover"
+										/>
+									</div>
+								{/if}
 								<div class="flex w-full items-center justify-between gap-2">
 									<H3 class="flex-3">{event.title}</H3>
 									<div class="flex flex-2 flex-col gap-1">
@@ -40,6 +50,8 @@
 								<Large>Location: {event.location}</Large>
 								<Separator/>
 								<P>{event.description}</P>
+							{:else if event.image?.has_info}
+								<img src={event.image?.url} alt="" loading="lazy" referrerpolicy="no-referrer"/>
 							{/if}
 							{#if event.url}
 								<div>
