@@ -6,7 +6,7 @@
 	let { heroData }: { heroData: Hero } = $props();
 </script>
 
-<PageHero image={heroData.image}>
+<PageHero image={heroData.image} size={'large'}>
 	<!-- <Announcement style="color: {heroData.color}" /> -->
 	<PageHeroHeading class="max-w-4xl" style="color: {heroData.color}">{heroData.title}</PageHeroHeading>
 	{#if heroData.content}

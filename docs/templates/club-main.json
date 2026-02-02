@@ -1,0 +1,39 @@
+{
+  "navbar": [
+    {
+      "title": "Calendar",
+      "url": "https://calendar.google.com/calendar/embed?src=<YOUR_CALENDAR_ID>&ctz=America%2FVancouver"
+    },
+    {
+      "title": "Meetings",
+      "url": "#meetings"
+    },
+    {
+      "title": "Members",
+      "url": "/members"
+    },
+    {
+      "title": "Resources",
+      "entries": [
+        {
+          "title": "Docs",
+          "content": "Short description",
+          "url": "/docs",
+          "image": "/images/navbar/docs.jpg"
+        },
+        {
+          "title": "Sign up",
+          "content": "Registration form",
+          "url": "https://example.com/register"
+        }
+      ]
+    }
+  ],
+
+  "hero": {
+    "title": "Your Club Name",
+    "content": "Short blurb about your club. Put longer paragraphs in the page body elsewhere.",
+    "color": "white",
+    "image": "/images/heros/club-hero.jpg"
+  }
+}
