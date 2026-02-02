@@ -9,13 +9,14 @@ import { error } from '@sveltejs/kit';
 import { getClubProjects } from '$lib/services/projects';
 import { normalizeNavbarUrl } from '$lib/services/urls';
 import type { EventTimeDate } from '$lib/types/event';
+import { partitionEvents, timeStringToDate } from '$lib/services/events';
 
 
 export async function load({ params, data }) {
 	const slug = params.slug as ClubKey;
-
-	const events: EventTimeDate[] = data.serverEvents ?? [];
-	const meetings: EventTimeDate[] = events.slice(0, 3);
+	
+	const events: EventTimeDate[] = data.serverEvents.map((event) => timeStringToDate(event));
+	const { meetings, nonMeetings } = partitionEvents(events);
 
 	try {
 		const page = await import(`$lib/data/pages/${slug}/main.json`);
@@ -27,8 +28,8 @@ export async function load({ params, data }) {
 			clubs: clubs as Record<ClubKey, Club>,
 			slug,
 			projects: getClubProjects(projects, slug) as ClubProject[] ?? undefined,
-			events,
-			meetings
+			events: nonMeetings,
+			meetings: (meetings ?? []).slice(0, 3)
 		};
 	} catch (e) {
 		throw error(404, `'${slug}.json' not found: ${e}`);

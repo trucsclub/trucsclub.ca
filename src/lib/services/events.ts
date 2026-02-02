@@ -35,7 +35,7 @@ export async function ensureClubEvents(slug: ClubKey, fetch: typeof window.fetch
 }
 
 
-function timeStringToDate(event: EventTimeString): EventTimeDate {
+export function timeStringToDate(event: EventTimeString): EventTimeDate {
     if (!event.time) {
         return event as EventTimeDate;
     }
