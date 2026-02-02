@@ -10,7 +10,7 @@
 	{#each members as member}
         <Card.Root class="min-h-96 min-w-80">
             <Card.Content class="flex aspect-square flex-col items-center justify-center gap-4">
-                <img src={member.image} alt="" class="relative flex size-48 shrink-0 overflow-hidden rounded-full" />
+                <img src={member.image} alt="" class="relative flex size-48 shrink-0 overflow-hidden rounded-full object-cover" />
                 <div>
                     <div class="flex gap-4 items-center">
                         <H3 class="flex-3">{member.name}</H3>

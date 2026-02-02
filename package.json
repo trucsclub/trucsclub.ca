@@ -45,6 +45,7 @@
 		"vite": "^7.2.6"
 	},
 	"dependencies": {
+		"googleapis": "^171.0.0",
 		"mode-watcher": "^1.1.0"
 	}
 }

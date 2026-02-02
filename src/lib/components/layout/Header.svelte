@@ -60,11 +60,11 @@
 								<Dialog.Header>
 									<Dialog.Title>Club Calendar</Dialog.Title>
 									<Dialog.Description>
-										Live club calendar in case event cards are not up to date.
+										Live club calendar in case event cards stop working.
 									</Dialog.Description>
 								</Dialog.Header>
 								<div class="grid gap-4">
-									<iframe class="border-2 w-192 h-160" title="Club Calendar from Google" src="{element.url}" scrolling="no"></iframe>
+									<iframe class="border-2 w-3xl h-160" title="Club Calendar from Google" src="{element.url}" scrolling="no"></iframe>
 								</div>
 							</Dialog.Content>
 						</Dialog.Root>

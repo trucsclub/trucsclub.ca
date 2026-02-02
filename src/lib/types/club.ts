@@ -16,6 +16,11 @@ interface SocialWithoutLogo {
 
 export type Social = SocialWithLogo | SocialWithoutLogo;
 
+interface Contact {
+	address: string,
+	title: string
+}
+
 export interface Member {
 	name: string,
 	position: string,
@@ -26,6 +31,8 @@ export interface Member {
 export interface Club {
 	name: string;
 	image: string;
+	calendarId: `${string}@${string}`;
 	socials?: Record<string, Social>; // <platform (key), info (value)>
+	contact?: Record<string, Contact>;
 	members?: Member[];
 }

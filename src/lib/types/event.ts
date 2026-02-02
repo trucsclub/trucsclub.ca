@@ -5,21 +5,30 @@ export interface EventTimeString {
 	clubs: ClubKey[];
 	title: string;
 	description: string;
-	time: string;
+	time: {
+		start: string;
+		end: string;
+		timeZone: string;
+	} | null
 	location: string;
-	image?: EventImage;
-	url?: string;
+	image: EventImage | null;
+	url: string | null;
 	repeat?: Repeat;
+	is_meeting?: boolean;
 }
 
 export interface EventTimeDate {
 	clubs: ClubKey[];
 	title: string;
 	description: string;
-	time: Date;
+	time: {
+		start: Date;
+		end: Date;
+		timeZone: string;
+	} | null
 	location: string;
-	image?: EventImage;
-	image_has_info?: boolean; // Setting to true hides the title, description, time, location, and club on card. Careful of accessibility issues.
-	url?: string;
+	image: EventImage | null;
+	url: string | null;
 	repeat?: Repeat;
+	is_meeting?: boolean;
 }

@@ -1,67 +1,51 @@
-import type { Repeat } from '$lib/types/common';
-import type { EventTimeDate } from '$lib/types/event';
+import { eventsStore } from '$lib/stores/events';
+import type { ClubKey } from '$lib/types/club';
+import type { EventTimeDate, EventTimeString } from '$lib/types/event';
+import { get } from 'svelte/store';
 
-export function repeatEvent(event: EventTimeDate): EventTimeDate[] {
-	if (!event.repeat) return [event];
-	const { times, every, unit } = event.repeat;
+export function partitionEvents(events: EventTimeDate[]) {
+	const meetings: EventTimeDate[] = [];
+	const nonMeetings: EventTimeDate[] = [];
 
-	// Pick which date component we are incrementing
-	let dateAccessors: {
-		get: (date: Date) => number;
-		set: (date: Date, value: number) => void;
-	};
-	switch (unit) {
-		case "hours":
-			dateAccessors = {
-				get: (date) => date.getHours(),
-				set: (date, value) => date.setHours(value)
-			};
-			break;
-		case "days":
-		case "weeks":
-			dateAccessors = {
-				get: (date) => date.getDate(),
-				set: (date, value) => date.setDate(value)
-			};
-			break;
-		default:
-			return [event];
+	for (const event of events) {
+		if (event.is_meeting == true || event.title?.toLowerCase().endsWith('meeting')) {
+			meetings.push(event);
+		} else {
+			nonMeetings.push(event);
+		}
 	}
 
-	const result: EventTimeDate[] = [];
-	for (let value = 0; value < times; value++) {
-		const newEvent = { ...event };
-		const baseDate = new Date(event.time);
-
-		let increment = every * value;
-		if (unit === "weeks") increment *= 7;
-
-		const currentValue = dateAccessors.get(baseDate);
-		dateAccessors.set(baseDate, currentValue + increment);
-		newEvent.time = baseDate;
-		delete newEvent.repeat;
-
-		result.push(newEvent);
-	}
-	return result;
+	return { meetings, nonMeetings };
 }
 
-export function getLastDate(start: Date, repeat: Repeat): Date {
-    if (repeat.times == 0) {
-        return new Date(start);
+export async function ensureClubEvents(slug: ClubKey, fetch: typeof window.fetch) {
+    const store = get(eventsStore);
+    if (store[slug]) {
+        return;
     }
-	
-    const result = new Date(start);
-    switch (repeat.unit) {
-        case 'hours':
-            result.setHours(result.getHours() + repeat.every * repeat.times);
-            break;
-        case 'days':
-            result.setDate(result.getDate() + repeat.every * repeat.times);
-            break;
-        case 'weeks':
-            result.setDate(result.getDate() + repeat.every * repeat.times * 7);
-            break;
+    const result = await fetch(`/api/events/${slug}`);
+    if (!result.ok) {
+        return;
     }
-    return result;
+
+    const rawEvents: EventTimeString[] = await result.json();
+    const events: EventTimeDate[] = rawEvents.map((event) => timeStringToDate(event));
+    const { meetings, nonMeetings } = partitionEvents(events);
+    eventsStore.update(store => ({...store, [slug]: {events: nonMeetings, meetings}}));
+}
+
+
+function timeStringToDate(event: EventTimeString): EventTimeDate {
+    if (!event.time) {
+        return event as EventTimeDate;
+    }
+
+    return {
+        ...event, 
+        time: {
+            start: new Date(event.time.start),
+            end: new Date(event.time.end),
+            timeZone: event.time.timeZone
+        }
+    };
 }

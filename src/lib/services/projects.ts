@@ -20,6 +20,10 @@ export function getClubProjects(clubsProjects: typeof projectsData, selectedClub
 	const result: ClubProject[] = [];
 
 	const clubData = clubsProjects[selectedClub];
+	if (!clubData) {
+		return [];
+	}
+
 	for (const project of Object.values(clubData.projects)) {
 		result.push({ ...project, club: selectedClub });
 	}

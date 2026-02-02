@@ -11,8 +11,8 @@
 	// Optionally, general site links
 	const siteLinks = [
 		{ title: 'Home', url: '/' },
-		{ title: 'About TRU Computing', url: '/about' },
-		{ title: 'Contact', url: '/contact' }
+		// { title: 'About TRU Computing', url: '/about' },
+		// { title: 'Contact', url: '/contact' }
 	];
 
 	// Gather all social links from clubs
@@ -72,7 +72,7 @@
 		</div>
 	</div>
 
-	<div class="mt-8 text-center text-sm text-muted-foreground">
+	<!-- <div class="mt-8 text-center text-sm text-muted-foreground">
 		<P>&copy; {new Date().getFullYear()} TRU Computing. All rights reserved.</P>
-	</div>
+	</div> -->
 </footer>

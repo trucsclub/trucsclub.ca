@@ -3,6 +3,16 @@
 		"name": "Computing Science",
 		"image": "https://trusu.ca/wp-content/uploads/2024/12/Computer-Science-Club-.webp",
 		"calendarId": "06464c0875d58a2663cc81aeabdf930cf0a2f303ca0bb1ad811a0c41653ae2e4@group.calendar.google.com",
+		"contact": {
+			"email_main": {
+				"address": "example@something.ca",
+				"title": "Email"
+			},
+			"phone_main": {
+				"address": "(123)-456-7890",
+				"title": "Phone"
+			}
+		},
 		"socials": {
 			"discord": {
 				"url": "https://discord.gg/UEGuccvBRy",
