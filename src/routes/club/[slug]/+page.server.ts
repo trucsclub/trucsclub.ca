@@ -13,9 +13,7 @@ export async function load({ params }) {
 	}
 	const rawEvents = await getEvents(calendarId);
 
-	const events = rawEvents.map((event) =>
-		convertEvent(event, slug)
-	);
+	const events = rawEvents.map((event) => convertEvent(event, slug));
 
 	return {
 		serverEvents: events
