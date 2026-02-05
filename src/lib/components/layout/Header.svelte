@@ -120,9 +120,9 @@
 {/snippet}
 
 <header class="sticky top-0 z-50 border-b bg-background/60 py-4 shadow-sm backdrop-blur-sm">
-	<div class="mx-auto grid w-11/12 max-w-7xl grid-cols-[auto_1fr_auto] gap-y-2 lg:items-center min-h-14">
+	<div class="mx-auto grid w-22/23 max-w-7xl grid-cols-[auto_1fr_auto] gap-y-2 lg:items-center min-h-14">
 		<!-- Club selector -->
-		<div class="col-start-1 row-start-1 mr-2">
+		<div class="col-start-1 row-start-1">
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger>
 					{#snippet child({ props })}
@@ -130,7 +130,7 @@
 							{#if selectedClub}
 								<img class="h-12 w-12 shrink-0 rounded-sm object-contain" src={selectedClub?.image ?? '/'} alt="" />
 							{/if}
-							<H3>{selectedClub?.name ?? 'TRU Computing'}</H3>
+							<H3 class="hidden sm:block">{selectedClub?.name ?? 'TRU Computing'}</H3>
 						</Button>
 					{/snippet}
 				</DropdownMenu.Trigger>
@@ -163,12 +163,12 @@
 		</div>
 
 		<!-- Header navigation bar -->
-		<div class="col-span-3 row-start-2 lg:col-start-2 lg:row-start-1">
+		<div class="col-start-2 sm:col-start-1 row-start-1 sm:row-start-2 lg:col-start-2 lg:row-start-1 flex justify-end lg:justify-start">
 			{@render NavigationBar({ navbarData })}
 		</div>
 
 		<!-- Div to group socials and theme -->
-		<div class="col-start-3 row-start-1 flex justify-end">
+		<div class="col-start-3 row-start-1 justify-end hidden sm:flex">
 			<NavigationMenu.Root viewport={isMobile.current}>
 				<NavigationMenu.List class="flex-wrap">
 					{#if socials}
