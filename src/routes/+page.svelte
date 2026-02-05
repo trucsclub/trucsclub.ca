@@ -23,6 +23,11 @@
 
 </script>
 
+<svelte:head>
+	<title>
+		TRU Computing
+	</title>
+</svelte:head>
 
 <Header {selectedClub} {clubs} {navbarData} />
 <Hero {heroData} />

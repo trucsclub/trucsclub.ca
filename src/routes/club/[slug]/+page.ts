@@ -1,8 +1,7 @@
-import clubs from '$lib/data/clubs.json';
 import projects from '$lib/data/projects.json';
 
 import type { HeaderElement, Hero } from '$lib/types/page';
-import type { Club, ClubKey } from '$lib/types/club';
+import type { ClubKey } from '$lib/types/club';
 import type { ClubProject } from '$lib/types/project';
 
 import { error } from '@sveltejs/kit';
@@ -25,8 +24,6 @@ export async function load({ params, data }) {
 		return {
 			navbarData: navbar as HeaderElement[],
 			heroData: page.hero as Hero,
-			clubs: clubs as Record<ClubKey, Club>,
-			slug,
 			projects: getClubProjects(projects, slug) as ClubProject[] ?? undefined,
 			events: nonMeetings ?? [],
 			meetings: (meetings ?? []).slice(0, 3)
