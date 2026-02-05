@@ -120,7 +120,7 @@
 {/snippet}
 
 <header class="sticky top-0 z-50 border-b bg-background/60 py-4 shadow-sm backdrop-blur-sm">
-	<div class="mx-auto grid w-11/12 max-w-7xl grid-cols-[auto_1fr_auto] gap-y-2 lg:items-center min-h-14">
+	<div class="mx-auto grid w-22/23 max-w-7xl grid-cols-[auto_1fr_auto] gap-y-2 lg:items-center min-h-14">
 		<!-- Club selector -->
 		<div class="col-start-1 row-start-1">
 			<DropdownMenu.Root>
