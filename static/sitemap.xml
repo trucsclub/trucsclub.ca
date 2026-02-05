@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://trucsclub.ca</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://trucsclub.ca/club/comp</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://trucsclub.ca/club/cyber</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://trucsclub.ca/club/game</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://trucsclub.ca/club/comp/members</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://trucsclub.ca/club/cyber/members</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://trucsclub.ca/club/game/members</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>
