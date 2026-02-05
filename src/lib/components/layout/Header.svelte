@@ -2,6 +2,8 @@
 	import SunIcon from '@lucide/svelte/icons/sun';
 	import MoonIcon from '@lucide/svelte/icons/moon';
 
+	import header_icon from '$lib/assets/favicon.png';
+
 	import { toggleMode } from 'mode-watcher';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
@@ -127,9 +129,7 @@
 				<DropdownMenu.Trigger>
 					{#snippet child({ props })}
 						<Button {...props} variant="ghost" href="/" class="h-12">
-							{#if selectedClub}
-								<img class="h-12 w-12 shrink-0 rounded-sm object-contain" src={selectedClub?.image ?? '/'} alt="" />
-							{/if}
+							<img class="h-12 w-12 shrink-0 rounded-sm object-contain" src={selectedClub?.image ?? header_icon} alt="" />
 							<H3 class="hidden sm:block">{selectedClub?.name ?? 'TRU Computing'}</H3>
 						</Button>
 					{/snippet}
@@ -168,13 +168,13 @@
 		</div>
 
 		<!-- Div to group socials and theme -->
-		<div class="col-start-3 row-start-1 justify-end hidden sm:flex">
+		<div class="col-start-3 row-start-1 justify-end flex">
 			<NavigationMenu.Root viewport={isMobile.current}>
 				<NavigationMenu.List class="flex-wrap">
 					{#if socials}
 						<!-- Header socials -->
 						{#each Object.values(socials) as element}
-							<NavigationMenu.Item>
+							<NavigationMenu.Item class="hidden sm:block">
 								<NavigationMenu.Link>
 									{#snippet child({ props })}
 										{#if element.image}
