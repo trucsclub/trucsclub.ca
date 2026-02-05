@@ -39,25 +39,27 @@
 		</div>
 
 		<!-- Social links -->
-		<div>
-			<H4>Socials</H4>
-			<ul class="mt-4 flex flex-col gap-2">
-				{#if socials}
-					{#each Object.values(socials) as element}
-						<li>
-							<Link href={element.url}>
-								<div class="flex items-center gap-2">
-									{#if element.image}
-										<img src={element.image} alt={element.title} class="h-6 w-6 rounded-sm object-contain" />
-									{/if}
-									<span>{element.title}</span>
-								</div>
-							</Link>
-						</li>
-					{/each}
-				{/if}
-			</ul>
-		</div>
+		{#if socials}
+			<div>
+				<H4>Socials</H4>
+				<ul class="mt-4 flex flex-col gap-2">
+					{#if socials}
+						{#each Object.values(socials) as element}
+							<li>
+								<Link href={element.url}>
+									<div class="flex items-center gap-2">
+										{#if element.image}
+											<img src={element.image} alt={element.title} class="h-6 w-6 rounded-sm object-contain" />
+										{/if}
+										<span>{element.title}</span>
+									</div>
+								</Link>
+							</li>
+						{/each}
+					{/if}
+				</ul>
+			</div>
+		{/if}
 
 		<!-- Site / info links -->
 		<div>
