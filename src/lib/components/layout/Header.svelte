@@ -54,9 +54,9 @@
 			{#each navbarData as element}
 				<NavigationMenu.Item>
 					{#if element.title == "Calendar"}
-						<Dialog.Root >
+						<Dialog.Root>
 							<Dialog.Trigger class={navigationMenuTriggerStyle()}>Calendar</Dialog.Trigger>
-							<Dialog.Content class="">
+							<Dialog.Content class="w-256">
 								<Dialog.Header>
 									<Dialog.Title>Club Calendar</Dialog.Title>
 									<Dialog.Description>
@@ -64,7 +64,7 @@
 									</Dialog.Description>
 								</Dialog.Header>
 								<div class="grid gap-4">
-									<iframe class="border-2 w-3xl h-160" title="Club Calendar from Google" src="{element.url}" scrolling="no"></iframe>
+									<iframe class="border-2 h-160" title="Club Calendar from Google" src="{element.url}" scrolling="no" width="100%"></iframe>
 								</div>
 							</Dialog.Content>
 						</Dialog.Root>
