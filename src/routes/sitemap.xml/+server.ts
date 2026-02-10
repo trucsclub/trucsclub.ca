@@ -1,6 +1,8 @@
 import clubs from '$lib/data/clubs.json';
 import type { RequestHandler } from './$types';
 
+export const prerender = false;
+
 export const GET: RequestHandler = async({url}) => {
 	const domain = url.origin;
 
