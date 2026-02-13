@@ -26,7 +26,8 @@ export interface Member {
 	name: string,
 	position: string,
 	description: string,
-	image?: string
+	image?: string,
+	url?: string
 }
 
 export interface Club {
