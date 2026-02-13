@@ -13,7 +13,7 @@ Top-level shape:
   "<clubKey>": {
     "name": "string",
     "image": "string",
-    "calendarId": "string",
+    "calendar": { "id": "string", "email": "string" },
     "socials": { "platform": { "url": "string", "title": "string?", "image": "string?" } },
     "contact": { "<key>"|"phone"|"email": { "address": "string", "title": "string" } },
     "members": [ { "name": "string", "position": "string", "description": "string", "image": "string?" } ]
@@ -25,7 +25,10 @@ Field details:
 
 - `name` (string) — Friendly club name displayed on the site.
 - `image` (string) — URL or path to the club image or logo (used in the club selector and cards). Prefer `/images/logos/<file>` or a full URL.
-- `calendarId` (string) — Google Calendar ID used to fetch events for the club.
+- `calendar` (object) — Google Calendar ID and email used to fetch events for the club.
+  ```json
+  { "id": "...@group.calendar.google.com", "email": "example@gmail.com" }
+  ```
 - `socials` (object, optional) — Map of social platforms to social data. Each social has two variants:
   - With logo:
     ```json
@@ -48,7 +51,7 @@ Example club entry:
 "comp": {
   "name": "Computing Science",
   "image": "/images/logos/comp.png",
-  "calendarId": "...@group.calendar.google.com",
+  "calendar": { "id": "...@group.calendar.google.com", "email": "string" },
   "socials": {
     "discord": { "url": "https://discord.gg/...", "title": "Discord", "image": "https://...svg" }
   },
