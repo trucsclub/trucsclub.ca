@@ -46,4 +46,4 @@ Notes:
 - Avoid putting long multi-word phrases inside JSON values (whitespace removal can merge words); put those phrases in the visible description below the JSON block.
 - If your JSON is invalid the block will be ignored and the visible description will still be shown.
 
-For full parsing details and best practices see [docs/events.md](docs/events.md).
+For full parsing details and best practices see [docs/events.md](/docs/events.md).

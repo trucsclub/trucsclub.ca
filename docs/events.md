@@ -18,7 +18,7 @@ Anything inside `<json>...</json>` is parsed and merged into the event the site 
 ## Fields you can override
 Most top-level event fields are valid to override. Common fields:
 
-- `clubs` (string[]) — replace the derived single club with multiple club slugs (e.g. `["comp","cyber"]`). Club slugs must match keys in [`src/lib/data/clubs.json`](src/lib/data/clubs.json).
+- `clubs` (string[]) — replace the derived single club with multiple club slugs (e.g. `["comp","cyber"]`). Club slugs must match keys in [`src/lib/data/clubs.json`](/src/lib/data/clubs.json).
 - `title` (string)
 - `description` (string) — short description only; long paragraphs should be kept outside the JSON block so they remain visible on the event page
 - `time` (object|null) — replace event times: `{ "start": "2026-03-01T18:00:00", "end": "2026-03-01T20:00:00", "timeZone": "America/Vancouver" }` or `null` to remove time
@@ -52,5 +52,5 @@ The JSON block is removed from the visible description and the rest is shown to 
 If you set `"image":{"has_info":true}`, the card will hide textual details (title/description/time/location/club) — ensure the image and linked pages provide equivalent accessibility (e.g., alt text on the image and an accessible event page).
 
 ## Where this is implemented
-- Parsing and merge logic: [`src/lib/server/events.ts`](src/lib/server/events.ts)
-- Event type: [`src/lib/types/event.ts`](src/lib/types/event.ts)
+- Parsing and merge logic: [`src/lib/server/events.ts`](/src/lib/server/events.ts)
+- Event type: [`src/lib/types/event.ts`](/src/lib/types/event.ts)
