@@ -1,4 +1,4 @@
-import clubs from '$lib/data/clubs.json';
+import { CLUB_KEYS } from '$lib/types/club';
 import type { RequestHandler } from './$types';
 
 export const prerender = false;
@@ -8,7 +8,7 @@ export const GET: RequestHandler = async({url}) => {
 
 	const urls = [
     `${domain}/`,
-    ...Object.keys(clubs).flatMap((slug) => [
+    ...CLUB_KEYS.flatMap((slug) => [
       `${domain}/club/${slug}`,
       `${domain}/club/${slug}/members`
     ])

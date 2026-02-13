@@ -3,10 +3,10 @@
 This file documents the page JSON structure (home and club pages) and how header/navbar items work.
 
 ## Where page content lives
-- Home page: [`src/lib/data/pages/home.json`](src/lib/data/pages/home.json)
-- Club pages: [`src/lib/data/pages/<slug>/main.json`](src/lib/data/pages/<slug>/main.json) (where `<slug>` is the club key defined in [`src/lib/data/clubs.json`](src/lib/data/clubs.json)).
+- Home page: [`src/lib/data/pages/home.json`](/src/lib/data/pages/home.json)
+- Club pages: [`src/lib/data/pages/<slug>/main.json`](/src/lib/data/pages/<slug>/main.json) (where `<slug>` is the club key defined in [`src/lib/data/clubs.json`](/src/lib/data/clubs.json)).
 
-Copy-paste template: see [`docs/templates/club-main.json`](docs/templates/club-main.json) or the JSON template at `docs/templates/club-main.json`.
+Copy-paste template: see [`docs/templates/club-main.json`](/docs/templates/club-main.json) or the JSON template at `docs/templates/club-main.json`.
 
 ## Page JSON structure
 Every page file follows the `Page` interface (`src/lib/types/page.ts`):

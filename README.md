@@ -1,14 +1,14 @@
 ## TRU Computing
 This website will be used for the computing clubs at Thompson Rivers University.
-Content is currently defined in [`src/lib/data`](src/lib/data). Each club must define images and data to be shown on their respective pages. Available attributes should be able to be inferred from the existing json files. For anything that may be missing, see the [`src/lib/types`](src/lib/types) directory where available attributes are defined.
+Content is currently defined in [`src/lib/data`](/src/lib/data). Each club must define images and data to be shown on their respective pages. Available attributes should be able to be inferred from the existing json files. For anything that may be missing, see the [`src/lib/types`](/src/lib/types) directory where available attributes are defined.
 
 ## Content & Docs
 Detailed guidance for creating and updating content is available in the `docs/` folder:
 
-- [`docs/events.md`](docs/events.md) — How to use `<json>...</json>` blocks in Google Calendar event descriptions to control event display (e.g., multiple clubs, image overrides) and parsing notes.
-- [`docs/pages.md`](docs/pages.md) — How to add pages and create header/navbar dropdowns for clubs. Includes a copy-paste `main.json` template at [`docs/templates/club-main.json`](docs/templates/club-main.json) and other templates in [`docs/templates.md`](docs/templates.md).
-- [`docs/images.md`](docs/images.md) — Where to place hero/member/logo/project images and accessibility guidance.
-- [`docs/data-attributes.md`](docs/data-attributes.md) — Field reference for `clubs.json` and `projects.json`.
+- [`docs/events.md`](/docs/events.md) — How to use `<json>...</json>` blocks in Google Calendar event descriptions to control event display (e.g., multiple clubs, image overrides) and parsing notes.
+- [`docs/pages.md`](/docs/pages.md) — How to add pages and create header/navbar dropdowns for clubs. Includes a copy-paste `main.json` template at [`docs/templates/club-main.json`](/docs/templates/club-main.json) and other templates in [`docs/templates.md`](/docs/templates.md).
+- [`docs/images.md`](/docs/images.md) — Where to place hero/member/logo/project images and accessibility guidance.
+- [`docs/data-attributes.md`](/docs/data-attributes.md) — Field reference for `clubs.json` and `projects.json`.
 
 Please share these links with club owners so they can add content correctly.
 

@@ -1,24 +1,21 @@
 import clubs from '$lib/data/clubs.json';
 import { getEvents } from '$lib/server/calendar';
 import { convertEvent } from '$lib/server/events';
-
-import type { ClubKey } from '$lib/types/club';
-import type { EventTimeDate } from '$lib/types/event';
+import type { EventTimeString } from '$lib/types/event';
+import type { calendar_v3 } from 'googleapis';
 
 export async function load() {
-	const allEvents: EventTimeDate[] = [];
+	const allEvents: EventTimeString[] = [];
 
-	for (const slug of Object.keys(clubs) as ClubKey[]) {
-		const calendarId = clubs[slug].calendarId;
-		if (!calendarId) {
-			console.warn(`No calendarId for club: ${slug}`);
-			continue;
-		}
-		const rawEvents = await getEvents(calendarId);
-		const converted = rawEvents.map(event => convertEvent(event, slug));
+	const calendarIds = new Set<string>((Object.values(clubs)).map(club => club.calendar.id));
+
+	for (const calendarId of calendarIds) {
+		console.log(calendarId);
+		const rawEvents: calendar_v3.Schema$Event[] = await getEvents(calendarId);
+		const parsedEvents: EventTimeString[] = rawEvents.map(event => convertEvent(event));
 		
-		const clubEvents: EventTimeDate[] = [];
-		for (const event of converted) {
+		const clubEvents: EventTimeString[] = [];
+		for (const event of parsedEvents) {
 			if (event.is_meeting == true || event.title?.toLowerCase().endsWith('meeting')) {
 				continue;
 			}

@@ -2,7 +2,10 @@
 	"comp": {
 		"name": "Computing Science",
 		"image": "https://trusu.ca/wp-content/uploads/2024/12/Computer-Science-Club-.webp",
-		"calendarId": "06464c0875d58a2663cc81aeabdf930cf0a2f303ca0bb1ad811a0c41653ae2e4@group.calendar.google.com",
+		"calendar": {
+			"email": "trucsclub@gmail.com",
+			"id": "06464c0875d58a2663cc81aeabdf930cf0a2f303ca0bb1ad811a0c41653ae2e4@group.calendar.google.com"
+		},
 		"socials": {
 			"discord": {
 				"url": "https://discord.gg/UEGuccvBRy",
@@ -42,7 +45,10 @@
 	"cyber": {
 		"name": "Cyber Security",
 		"image": "https://trusu.ca/wp-content/uploads/2024/12/Cyber-Security-Club-1-1.png",
-		"calendarId": "",
+		"calendar": {
+			"email": "trusu.cybersec@gmail.com",
+			"id": "06464c0875d58a2663cc81aeabdf930cf0a2f303ca0bb1ad811a0c41653ae2e4@group.calendar.google.com"
+		},
 		"members": [
 			{
 				"name": "Aidan Chan",
@@ -71,6 +77,9 @@
 	"game": {
 		"name": "Game Development",
 		"image": "https://trusu.ca/wp-content/uploads/2024/12/Game-Development-Club-1-1.webp",
-		"calendarId": ""
+		"calendar": {
+			"email": "trugamedev@gmail.com",
+			"id": "06464c0875d58a2663cc81aeabdf930cf0a2f303ca0bb1ad811a0c41653ae2e4@group.calendar.google.com"
+		}
 	}
 }

@@ -1,10 +1,27 @@
 import { IMAGE_EXTENSIONS, IMAGE_MIME_PREFIX } from '$lib/constants';
-import type { ClubKey } from '$lib/types/club';
+import clubs from '$lib/data/clubs.json';
+import { CLUB_KEYS, type ClubKey } from '$lib/types/club';
 import type { EventImage } from '$lib/types/common';
 import type { EventTimeString } from '$lib/types/event';
 import type { calendar_v3 } from 'googleapis';
 
-export function convertEvent(event: calendar_v3.Schema$Event, club: ClubKey): EventTimeString {
+export function convertEvent(event: calendar_v3.Schema$Event, club?: ClubKey): EventTimeString {
+    
+    // clubEmail = clubs[club].calendar.email;
+
+    const creatorEmail = event.creator?.email;
+    let eventClub: ClubKey | null = null; 
+
+    // Find the key (e.g., 'comp', 'cyber') where the calendar email matches
+    if (creatorEmail) {
+        const foundKey = CLUB_KEYS.find((key) => clubs[key].calendar.email === creatorEmail);
+        if (foundKey) {
+            eventClub = foundKey;
+        }
+    }
+    else if (club) {
+        eventClub = club;
+    }
 
     let custom: Record<string, unknown> | Partial<EventTimeString> = {};
     let cleanDescription = '';
@@ -23,10 +40,8 @@ export function convertEvent(event: calendar_v3.Schema$Event, club: ClubKey): Ev
     const timeZone = event.start?.timeZone;
     const hasTime = startDateTime && endDateTime && timeZone;
 
-    console.log(event);
-
     const baseEvent: EventTimeString = {
-        clubs: [club],
+        clubs: (eventClub ? [eventClub] : []),
         title: event.summary ?? '',
         description: cleanDescription,
         time: hasTime ? {
@@ -47,7 +62,6 @@ export function convertEvent(event: calendar_v3.Schema$Event, club: ClubKey): Ev
         custom.image = newImage; 
     }
     const newEvent = {...baseEvent, ...custom};
-    console.log(newEvent.image)
     return newEvent;
 }
 
@@ -79,7 +93,7 @@ function parseDescription(description?: string): {custom: Record<string, unknown
             jsonText = jsonText.replace(/<[^>]+>/g, '');
             // Remove whitespace/newlines.
             jsonText = jsonText.replace(/\s+/g, '').trim();
-            console.log(jsonText)
+            // console.log(jsonText)
             try {
                 custom = JSON.parse(jsonText);
             } catch (err) {
