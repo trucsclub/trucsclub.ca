@@ -37,7 +37,7 @@
 	"cyber": {
 		"name": "Cyber Security",
 		"image": "https://trusu.ca/wp-content/uploads/2024/12/Cyber-Security-Club-1-1.png",
-		"calendarId": "",
+		"calendarId": "06464c0875d58a2663cc81aeabdf930cf0a2f303ca0bb1ad811a0c41653ae2e4@group.calendar.google.com",
 		"members": [
 			{
 				"name": "Aidan Chan",
@@ -61,6 +61,6 @@
 	"game": {
 		"name": "Game Development",
 		"image": "https://trusu.ca/wp-content/uploads/2024/12/Game-Development-Club-1-1.webp",
-		"calendarId": ""
+		"calendarId": "06464c0875d58a2663cc81aeabdf930cf0a2f303ca0bb1ad811a0c41653ae2e4@group.calendar.google.com"
 	}
 }
