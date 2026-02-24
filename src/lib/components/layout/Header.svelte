@@ -2,7 +2,6 @@
 	import SunIcon from '@lucide/svelte/icons/sun';
 	import MoonIcon from '@lucide/svelte/icons/moon';
 
-	import header_icon from '/android-chrome-192x192.png';
 
 	import { toggleMode } from 'mode-watcher';
 	import { Button } from '$lib/components/ui/button/index.js';
@@ -129,7 +128,7 @@
 				<DropdownMenu.Trigger>
 					{#snippet child({ props })}
 						<Button {...props} variant="ghost" href="/" class="h-12">
-							<img class="h-12 w-12 shrink-0 rounded-sm object-contain" src={selectedClub?.image ?? header_icon} alt="" />
+							<img class="h-12 w-12 shrink-0 rounded-sm object-contain" src={selectedClub?.image ?? '/android-chrome-192x192.png'} alt="" />
 							<H3 class="hidden sm:block">{selectedClub?.name ?? 'TRU Computing'}</H3>
 						</Button>
 					{/snippet}

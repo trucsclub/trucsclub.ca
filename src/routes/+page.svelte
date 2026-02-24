@@ -51,7 +51,7 @@
 </section>
 
 {#if events.length}
-<section class="m-auto my-16 flex w-11/12 flex-col gap-8">
+<section class="m-auto my-16 flex sm:w-11/12 w-full flex-col gap-8">
 	<H1 class="text-center">Upcoming Events</H1>
 	<Separator />
 	<EventCarousel {events} {clubs} />
@@ -60,7 +60,7 @@
 {/if}
 
 {#if topProjects.length}
-	<section class="m-auto my-16 flex w-11/12 flex-col gap-8">
+	<section class="m-auto my-16 flex sm:w-11/12 w-full flex-col gap-8">
 		<H1 class="text-center">Top Project Picks</H1>
 		<Separator />
 		<ProjectCollection projects={topProjects} {clubs} />

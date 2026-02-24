@@ -10,7 +10,7 @@
 	let { events, clubs }: { events: EventTimeDate[]; clubs: Record<ClubKey, Club> } = $props();
 </script>
 
-<Carousel.Root class="m-auto w-11/12 max-w-[calc(100%-8rem)]">
+<Carousel.Root class="m-auto sm:w-11/12 max-w-[calc(100%-6rem)]">
 	<Carousel.Content class="-ms-1">
 		{#each Object.values(events) as event}
 			<Carousel.Item class="ps-1 md:basis-1/2 xl:basis-1/3">

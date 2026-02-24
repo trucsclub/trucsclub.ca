@@ -26,7 +26,7 @@
 <Hero {heroData} />
 
 {#if events.length}
-	<section class="m-auto my-16 flex w-11/12 flex-col gap-8">
+	<section class="m-auto my-16 flex sm:w-11/12 w-full flex-col gap-8">
 		<H1 class="text-center">Upcoming Events</H1>
 		<Separator />
 		<EventCarousel {events} {clubs} />
@@ -35,7 +35,7 @@
 {/if}
 
 {#if meetings.length}
-	<section class="m-auto my-16 flex w-11/12 flex-col gap-8" id="meetings">
+	<section class="m-auto my-16 flex sm:w-11/12 w-full flex-col gap-8" id="meetings">
 		<H1 class="text-center">Meetings</H1>
 		<Separator />
 		<EventCarousel events={meetings} {clubs} />
@@ -44,7 +44,7 @@
 {/if}
 
 {#if projects.length}
-	<section class="m-auto my-16 flex w-11/12 flex-col gap-8">
+	<section class="m-auto my-16 flex sm:w-11/12 w-full flex-col gap-8">
 		<H1 class="text-center">Club Projects</H1>
 		<Separator />
 		<ProjectCollection {projects} {clubs} />
