@@ -9,7 +9,7 @@ export function partitionEvents(events: EventTimeDate[]) {
 
 	for (const event of events) {
 		const title = event.title?.toLowerCase() ?? '';
-		if (event.is_meeting == true || title.includes('board meeting'))) {
+		if (event.is_meeting == true || title.includes('board meeting')) {
 			meetings.push(event);
 		} else {
 			nonMeetings.push(event);
