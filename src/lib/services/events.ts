@@ -8,7 +8,8 @@ export function partitionEvents(events: EventTimeDate[]) {
 	const nonMeetings: EventTimeDate[] = [];
 
 	for (const event of events) {
-		if (event.is_meeting == true || event.title?.toLowerCase().endsWith('meeting')) {
+		const title = event.title?.toLowerCase() ?? '';
+		if (event.is_meeting == true || title.includes('board meeting'))) {
 			meetings.push(event);
 		} else {
 			nonMeetings.push(event);
